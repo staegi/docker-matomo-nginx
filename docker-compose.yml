@@ -1,0 +1,41 @@
+version: "2"
+
+services:
+  nginx:
+    build: .
+    restart: always
+    environment:
+      NGINX_BACKEND_HOST: matomo
+    depends_on:
+      - matomo
+    volumes:
+      - root:/var/www/html
+    ports:
+      - 80:80
+  matomo:
+    image: matomo:fpm-alpine
+    restart: always
+    volumes:
+      - root:/var/www/html
+    depends_on:
+      - mysql
+  mysql:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: matomo
+      MYSQL_DATABASE: matomo
+      MYSQL_USER: matomo
+      MYSQL_PASSWORD: matomo
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:4.9
+    restart: always
+    ports:
+      - 8080:80
+    depends_on:
+      - mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: matomo
+      PMA_HOST: mysql
+volumes:
+  root:
