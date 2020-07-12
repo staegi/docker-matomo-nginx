@@ -28,6 +28,7 @@ server {
         fastcgi_split_path_info ^(.+?\.php)(/.*)$;
         fastcgi_pass php;
         track_uploads uploads 60s;
+        add_header X-Frame-Options "";
     }
 
     location ~ [^/]\.php(/|$) {
