@@ -4,9 +4,9 @@ Overview:
 
 * All images are based on Alpine Linux
 * Base image: [wodby/php-nginx](https://github.com/wodby/php-nginx)
-* [Docker Hub](https://hub.docker.com/r/tomcat2111/redaxo-nginx)
+* [Docker Hub](https://hub.docker.com/r/tomcat2111/matomo-nginx)
 
-[_(Dockerfile)_]: https://github.com/staegi/docker-redaxo-nginx/tree/master/Dockerfile
+[_(Dockerfile)_]: https://github.com/staegi/docker-matomo-nginx/tree/master/Dockerfile
 
 ## Environment Variables
 
